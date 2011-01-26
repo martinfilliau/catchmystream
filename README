@@ -1,0 +1,8 @@
+catchmystream
+==============
+
+The aim of the catchmystream project is to develop a platform able to consume feeds from various sources (Twitter, Google Reader, Delicious, Flickr, Evernote etc) and format informations into a common language. (Inspired from the ETL Extract-Transform-Load method of datawarehouse)
+
+Why?
+
+Your data are disseminated into various services, maybe not reliable and with no links between those information silos. Catchmystream allow you to store your datas on your own server, and to search them in an uniformized way. Something like your "personal" Google. 

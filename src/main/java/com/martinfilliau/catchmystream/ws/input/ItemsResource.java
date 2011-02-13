@@ -1,14 +1,14 @@
 package com.martinfilliau.catchmystream.ws.input;
 
 import com.martinfilliau.catchmystream.data.ws.ItemRepresentation;
+import com.martinfilliau.catchmystream.services.InsertIntoCms;
+import javax.ejb.EJB;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.POST;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
-import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 
 /**
@@ -21,6 +21,8 @@ import javax.ws.rs.Produces;
 public class ItemsResource {
     @Context
     private UriInfo context;
+    @EJB
+    private InsertIntoCms service;
 
     /** Creates a new instance of ItemsResource */
     public ItemsResource() {
@@ -37,9 +39,13 @@ public class ItemsResource {
     public Response postXml(ItemRepresentation item) {
         
         // TODO check key
+        // TODO check format (date format for example)
         
+        service.insert(item);
         
-        return Response.created(context.getAbsolutePath()).build();
+        // warning: this means that it is not possible to directly obtain
+        // the ID of the new resource created
+        return Response.status(Response.Status.ACCEPTED).build();
     }
 
 }

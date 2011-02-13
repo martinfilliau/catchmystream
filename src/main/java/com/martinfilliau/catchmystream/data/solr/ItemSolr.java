@@ -1,10 +1,11 @@
 package com.martinfilliau.catchmystream.data.solr;
 
+import java.util.Date;
 import java.util.List;
 import org.apache.solr.client.solrj.beans.Field;
 
 /**
- *
+ * Solr view of an item
  * @author martinfilliau
  */
 public class ItemSolr {
@@ -19,7 +20,7 @@ public class ItemSolr {
     private String author;
 
     @Field
-    private String publishedDate;
+    private Date publishedDate;
     
     @Field
     private List<String> content;
@@ -60,11 +61,11 @@ public class ItemSolr {
         this.author = author;
     }
 
-    public String getPublishedDate() {
+    public Date getPublishedDate() {
         return publishedDate;
     }
 
-    public void setPublishedDate(String publishedDate) {
+    public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
     }
 

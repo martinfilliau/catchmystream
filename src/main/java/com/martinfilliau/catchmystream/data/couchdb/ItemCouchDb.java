@@ -1,49 +1,33 @@
-package com.martinfilliau.catchmystream.data.ws;
+package com.martinfilliau.catchmystream.data.couchdb;
 
+import java.util.Date;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import org.ektorp.support.CouchDbDocument;
 
 /**
- * Web service (input) view of an item
+ * CouchDb view of an item
+ * NOTE: strong dependency on {@link org.ektorp.support.CouchDbDocument}
  * @author martinfilliau
  */
-@XmlRootElement(name="item")
-public class ItemRepresentation {
+public class ItemCouchDb extends CouchDbDocument {
 
-    @XmlAttribute(name="key", required=true)
-    private String authKey;     // key of the authorized feeder
-    
-    @XmlElement(name="uri")
     private String uri;
     
-    @XmlElement(name="title")
     private String title;
     
-    @XmlElement(name="author")
     private String author;
     
-    @XmlElement(name="publishedDate")
-    private String publishedDate;   // TODO define format
+    private Date publishedAt;
     
-    @XmlElement(name="content")
+    private Date retrievedAt;
+    
     private List<String> content;
     
-    @XmlElement(name="keywords")
     private List<String> keywords;
 
     
     /* GETTERs and SETTERs */
     
-    public String getAuthKey() {
-        return authKey;
-    }
-
-    public void setAuthKey(String authKey) {
-        this.authKey = authKey;
-    }
-
     public String getUri() {
         return uri;
     }
@@ -68,12 +52,20 @@ public class ItemRepresentation {
         this.author = author;
     }
 
-    public String getPublishedDate() {
-        return publishedDate;
+    public Date getPublishedAt() {
+        return publishedAt;
     }
 
-    public void setPublishedDate(String publishedDate) {
-        this.publishedDate = publishedDate;
+    public void setPublishedAt(Date publishedAt) {
+        this.publishedAt = publishedAt;
+    }
+
+    public Date getRetrievedAt() {
+        return retrievedAt;
+    }
+
+    public void setRetrievedAt(Date retrievedAt) {
+        this.retrievedAt = retrievedAt;
     }
 
     public List<String> getContent() {
@@ -91,4 +83,5 @@ public class ItemRepresentation {
     public void setKeywords(List<String> keywords) {
         this.keywords = keywords;
     }
+    
 }

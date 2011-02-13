@@ -329,9 +329,6 @@
          any data added to them will be ignored outright.  --> 
     <fieldtype name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" /> 
 
-
-
-
 	<fieldType name="username" class="solr.StrField" />
 <!--	
 <fieldType name="date" class="solr.TrieDateField" omitNorms="true" precisionStep="6" positionIncrementGap="0" />
@@ -355,7 +352,6 @@
  <copyField source="description" dest="fulltext" />
  <copyField source="author" dest="fulltext" />
  <copyField source="keywords" dest="fulltext" />
-
 
  <defaultSearchField>fulltext</defaultSearchField>
  <uniqueKey>uri</uniqueKey>
